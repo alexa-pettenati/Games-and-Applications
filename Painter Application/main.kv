@@ -1,0 +1,284 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+ScreenManagement:
+	transition: FadeTransition()
+	MainScreen:
+	AnotherScreen:
+
+<MainScreen>:
+	name: "main"
+	FloatLayout:
+		canvas.before:
+			Color:
+				rgba: 1,1,1,1
+			Rectangle:
+				pos:self.pos
+				size: self.size
+		Label:
+			markup: True
+			text: 'P[ref=a][color=ff9900]a[/color][/ref][ref=i][color=e6e600]i[/color][/ref][ref=n][color=33cc33]n[/color][/ref][ref=t][color=00ffff]t[/color][/ref][ref=e][color=0000ff]e[/color][/ref][ref=r][color=cc00ff]r[/color][/ref]'
+			color: 1,0,0,1
+			pos_hint: {"x":0, "y": 0.1}
+			font_name: "C:\Windows\Fonts\HoboStd.otf"
+			font_size: 0.09 * self.width
+		Label:
+			text: "Tap to start!"
+			color: 0,0,0,1
+			size_hint: 0.3, 0.2
+			pos_hint: {'x': 0.35, 'y': 0.33}
+			font_size: 0.09 * self.width
+			font_name: "C:\Windows\Fonts\HoboStd.otf"
+		Button:
+			on_release: app.root.current = "other"
+			background_color: 0,0,0,0
+
+<AnotherScreen>:
+	name: "other"
+	FloatLayout:
+		canvas.before:
+			Color:
+				rgba: 1,1,1,1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		Painter
+			id: paint
+		Palet:
+			canvas:
+				Color: 
+					rgba: 0, 0, 0, 1
+				Rectangle:
+					pos: self.pos
+					size: self.width, self.height/15
+		ImageButton:
+			id: white
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/white.png'
+			pos_hint: {"x":.083333, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (1,1,1,1)
+		ImageButton:
+			id: red
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/red.png'
+			pos_hint: {"x":.194444, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.79,0,0,1)
+		ImageButton:
+			id: orange
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/orange.png'
+			pos_hint: {"x":.305555, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (1,.6,0,1)
+		ImageButton:
+			id: yellow
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/yellow.png'
+			pos_hint: {"x":.416666, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.902, .902, 0, 1)
+		ImageButton:
+			id: green
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/green.png'
+			pos_hint: {"x":.527777, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.2, .651, .2, 1)
+		ImageButton:
+			id: cyan
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/cyan.png'
+			pos_hint: {"x":.63888, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (0, 1, 1, 1)
+		ImageButton:
+			id: blue
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/blue.png'
+			pos_hint: {"x":.749999, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (0,0,1,1)
+		ImageButton:
+			id: next
+			source: "images/next.png"
+			visible: True
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			pos_hint: {"x":.861111, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			on_release: next.visible = False
+			on_release: red.visible = False
+			on_release: orange.visible = False
+			on_release: yellow.visible = False
+			on_release: green.visible = False
+			on_release: cyan.visible = False
+			on_release: blue.visible = False
+			on_release: purple.visible = True
+			on_release: pink.visible = True
+			on_release: brown.visible = True
+			on_release: black.visible = True
+			on_release: gray.visible = True
+			on_release: white.visible = False
+			on_release: tan.visible = True
+			on_release: darkgreen.visible = True
+			on_release: back.visible = True
+		ImageButton:
+			id: purple
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/purple.png'
+			pos_hint: {"x":.083333, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.8,0,1,1)
+		ImageButton:
+			id: pink
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/pink.png'
+			pos_hint: {"x":.194444, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (1, .4235, 1, 1)
+		ImageButton:
+			id: brown
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/brown.png'
+			pos_hint: {"x":.305555, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.55, .361, 0, 1)
+		ImageButton:
+			id: gray
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/gray.png'
+			pos_hint: {"x":.416666, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.46, .46, .46, 1)
+		ImageButton:
+			id: black
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/black.png'
+			pos_hint: {"x":.527777, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (0,0,0,1)
+		ImageButton:
+			id: tan
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/tan.png'
+			pos_hint: {"x":.63888, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.8588,.7725,.5098,1)
+		ImageButton:
+			id: darkgreen
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			source: 'images/darkgreen.png'
+			pos_hint: {"x":.749999, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			allow_stretch: True
+			on_release: paint.LineColor = (.2039,.3176,.1176,1)
+		ImageButton:
+			id: back
+			source: "images/back.png"
+			visible: False
+			opacity: 1 if self.visible else 0
+			disabled: not self.visible
+			pos_hint: {"x":.861111, 'y': .004}
+			size_hint: .06, .06 if self.visible else 0
+			on_release: next.visible = True
+			on_release: red.visible = True
+			on_release: orange.visible = True
+			on_release: yellow.visible = True
+			on_release: green.visible = True
+			on_release: cyan.visible = True
+			on_release: blue.visible = True
+			on_release: purple.visible = False	
+			on_release: pink.visible = False
+			on_release: brown.visible = False
+			on_release: black.visible = False
+			on_release: gray.visible = False
+			on_release: white.visible = True
+			on_release: tan.visible = False
+			on_release: darkgreen.visible = False
+			on_release: back.visible = False
+		Palet:
+			canvas:
+				Color: 
+					rgba: 0, 0, 0, 1
+				Rectangle:
+					pos: 0, self.center_y*1.87
+					size: self.width, self.height/14
+		ImageButton:
+			source: "images/undo.png"
+			pos_hint: {'x': .1,'y':.942}
+			size_hint: .05, .05
+			on_release: paint.undo()
+		ImageButton:
+			source: 'images/redo.png'
+			pos_hint: {'x':.2, 'y':.942}
+			size_hint: .05,.05
+			on_release: paint.redo()
+		Button:
+			text: "Clear"
+			font_size: 0.45 * self.width
+			size_hint: .07,.07
+			pos_hint: {'x':.8,'y':.93}
+			font_name: "C:\Windows\Fonts\HoboStd.otf"
+			color: .48637,.48637,.48637,1
+			background_color:0,0,0,0
+			on_release: paint.canvas.clear()
+		Slider:
+			id: slider
+			min: 1
+			max: 20
+			value: 5
+			orientation: 'horizontal'
+			value_track: True
+			value_track_color: 1,0,0,1
+			on_value:paint.LineWidth = slider.value
+			size_hint: .4, .1
+			cursor_size: 15,15
+			pos_hint: {'x': .32, 'y':.92}
+			background_color:0,0,0,1
+			
+			
+			
+			
+		
